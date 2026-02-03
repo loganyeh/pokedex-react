@@ -6,14 +6,26 @@ function PokemonInfoPage(){
             <div className="h-screen w-screen">
 
                 {/* POKEMON NUMBERS */}
-                <div className="border-2 border-red-600 h-1/12 w-full flex justify-center items-start text-3xl">
-                   &lt; 690 691 692 693 694 695 696 697 698 699 &gt;
+                <div className="border-2 border-red-600 h-1/12 w-full flex justify-center items-start text-2xl">
+                    <span className="mx-5">&lt;</span>
+                    <span className="mx-5">690</span>
+                    <span className="mx-5">691</span>
+                    <span className="mx-5">692</span>
+                    <span className="mx-5">693</span>
+                    <span className="mx-5">694</span>
+                    <span className="mx-5">695</span>
+                    <span className="mx-5">696</span>
+                    <span className="mx-5">697</span>
+                    <span className="mx-5">698</span>
+                    <span className="mx-5">699</span>
+                    <span className="mx-5">&gt;</span>
                 </div>
 
                 {/* POKEMON NAME AND ID NUMBER */}
-                <div className="border-2 border-red-600 h-2/12 w-full text-5xl">
-                    #699<br />
-                    Aurorus
+                <div className="border-2 border-red-600 h-2/12 w-full pl-8 flex-col">
+                    <span className="border border-black h-1/2 w-auto text-3xl">#699</span><br />
+                    <span className="border border-black h-1/2 w-auto text-5xl">Aurorus</span>
+                    {/* left of here ************* */}
                 </div>
 
                 {/* POKEMON PICTURE AND INFO */}
