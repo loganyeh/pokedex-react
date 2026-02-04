@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 
 function PokemonInfoPage(){
     const [data, setData] = useState(null);
+    const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch("https://pokeapi.co/api/v2/pokemon/aurorus");
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${queryNum}`);
                 const data = await response.json();
                 const pokemonData = {
                     sprite: data.sprites.front_default,
@@ -21,6 +22,10 @@ function PokemonInfoPage(){
                     special_defense: data.stats[4].base_stat,
                     speed: data.stats[5].base_stat,
                     attack: data.stats[1].base_stat,
+                    type_one: data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1),
+                    // type_two: data.types[1].type.name.charAt(0).toUpperCase() + data.types[1].type.name.slice(1),
+                    // figure out what do do if it has more than 1 or more than 2 types 
+                    // add more types ????
                 }
                 setData(pokemonData);
             } catch (error) {
@@ -30,7 +35,6 @@ function PokemonInfoPage(){
         fetchPokemon();
     }, []);
 
-
     return(
         <>
             <div className="h-screen w-screen bg-blue-300 text-white">
@@ -38,16 +42,16 @@ function PokemonInfoPage(){
                 {/* POKEMON NUMBERS */}
                 <div className="h-1/12 w-full flex justify-center items-start pt-2 text-2xl">
                     <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">&lt;</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">690</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">691</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">692</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">693</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">694</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">695</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">696</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">697</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">698</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">699</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 4).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 3).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 2).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 1).toString()}</span>
+                    <span className="mx-5 text-shadow-lg font-medium underline hover:text-gray-200 active:text-white cursor-pointer">{data?.id}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 1).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 2).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 3).toString()}</span>
+                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 4).toString()}</span>
+                    {/* <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{data?.id + 10}</span> */}
                     <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">&gt;</span>
                 </div>
 
@@ -92,8 +96,8 @@ function PokemonInfoPage(){
 
                         {/* Pokemon Type */}
                         <div className="h-2/12 w-6/12 flex justify-around items-center">
-                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">ROCK IMAGE</div>
-                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">SNOW IMAGE</div>
+                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">{data?.type_one}</div>
+                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">{data?.type_one}</div>
                         </div>
                         {/* Base Stats TITLE */}
                         <div className="h-2/12 w-full flex justify-start items-center text-6xl text-shadow-sm">Base stats:</div>
