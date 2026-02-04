@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 
-
 function PokemonInfoPage(){
-    const [sprite, setSprite] = useState(null);
     const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch("https://pokeapi.co/api/v2/pokemon/charizard");
+                const response = await fetch("https://pokeapi.co/api/v2/pokemon/aurorus");
                 const data = await response.json();
                 const pokemonData = {
                     sprite: data.sprites.front_default,
@@ -73,16 +71,16 @@ function PokemonInfoPage(){
                         </div>
                         
                         {/* NAME TITLE */}
-                        <div className="border-3 border-black h-full w-11/12 relative">
-                            <div className="border border-red-600 h-1/3 w-full absolute top-0 text-9xl text-black font-normal opacity-60 z-10">アマルルガ</div>
-                            <div className="border border-red-600 h-1/3 w-full absolute top-1/3 pl-3 text-2xl font-normal text-shadow-sm">
+                        <div className="h-full w-11/12 relative">
+                            <div className="h-1/3 w-full absolute top-0 text-9xl text-black font-normal opacity-50 z-10">アマルルガ</div>
+                            <div className="h-1/3 w-full absolute top-1/3 pl-3 text-2xl font-normal text-shadow-sm">
                                 Height: <span className="text-xl font-light text-shadow-sm">{data?.height}m</span><br />
                                 Weight: <span className="text-xl font-light text-shadow-sm">{data?.weight}kg</span>
                             </div>
 
-                            {/* TEST TEST**** IMAGE SPRITE */}
-                            <div className="border-2 border-black h-1/3 w-full absolute top-1/3 left-15 flex justify-center items-center z-0">
-                                <img src={data?.sprite} alt={data?.name} className="h-160 w-160 opacity-90"/>
+                            {/* img sprite */}
+                            <div className="h-1/3 w-full absolute top-1/3 left-35 flex justify-center items-center z-0">
+                                <img src={data?.sprite} alt={data?.name} className="h-180 w-180 opacity-90"/>
                             </div>
                         </div>
 
