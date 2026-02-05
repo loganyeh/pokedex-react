@@ -1,13 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MyContext } from "../context/MyContext";
+import SearchBar from "../components/SplashPage/SearchBar";
+import IDBar from "../components/SplashPage/IDBar";
+import NameIDTitle from "../components/SplashPage/NameIDTitle";
+import RegionName from "../components/SplashPage/RegionName";
+import PokemonStats from "../components/SplashPage/PokemonStats";
+import PokemonType from "../components/SplashPage/PokemonType";
 
 function PokemonInfoPage(){
+    const { name, setName, number, setNumber } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${queryNum}`);
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`);
                 const data = await response.json();
                 const pokemonData = {
                     sprite: data.sprites.front_default,
@@ -33,46 +41,26 @@ function PokemonInfoPage(){
             }
         }
         fetchPokemon();
-    }, []);
+    }, [number]);
 
     return(
         <>
+            
             <div className="h-screen w-screen bg-blue-300 text-white">
 
-                {/* POKEMON NUMBERS */}
-                <div className="h-1/12 w-full flex justify-center items-start pt-2 text-2xl">
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">&lt;</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 4).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 3).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 2).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id - 1).toString()}</span>
-                    <span className="mx-5 text-shadow-lg font-medium underline hover:text-gray-200 active:text-white cursor-pointer">{data?.id}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 1).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 2).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 3).toString()}</span>
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{(data?.id + 4).toString()}</span>
-                    {/* <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{data?.id + 10}</span> */}
-                    <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">&gt;</span>
-                </div>
+                {/* Pagination ID BAR */}
+                <IDBar data={data} />
 
                 {/* POKEMON NAME AND ID NUMBER */}
-                <div className="h-2/12 w-full pl-8 flex flex-col ">
-                    <span className="h-full w-full text-3xl flex justify-start items-end text-shadow-sm">#{data?.id}</span>
-                    <span className="h-full w-full pt-2 text-5xl text-shadow-sm">{data?.name}</span>
-                </div>
+                <NameIDTitle data={data} />
 
                 {/* POKEMON PICTURE AND INFO */}
                 <div className="h-8/12 w-full flex">
-
                     {/* LEFT SPLASH PAGE */}
                     <div className="h-full w-2/3 flex">
 
                         {/* Region TITLE */}
-                        <div className="h-full w-1/12">
-                            <div className="h-1/2 w-full flex justify-center items-center text-2xl whitespace-nowrap rotate-270">
-                                <span className="mr-2 text-2xl font-normal text-shadow-sm">Region: </span><span className="text-xl font-light text-shadow-sm">{data?.region}</span>
-                            </div>
-                        </div>
+                        <RegionName data={data} />
                         
                         {/* NAME TITLE */}
                         <div className="h-full w-11/12 relative">
@@ -93,44 +81,22 @@ function PokemonInfoPage(){
 
                     {/* RIGHT SPLASH PAGE */}
                     <div className="h-full w-1/3">
-
                         {/* Pokemon Type */}
-                        <div className="h-2/12 w-6/12 flex justify-around items-center">
-                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">{data?.type_one}</div>
-                            <div className="h-28 w-28 flex justify-center items-center bg-white text-black shadow-lg rounded-full">{data?.type_one}</div>
-                        </div>
+                        <PokemonType data={data} />
+
                         {/* Base Stats TITLE */}
                         <div className="h-2/12 w-full flex justify-start items-center text-6xl text-shadow-sm">Base stats:</div>
+                        
                         {/* Pokemon INFO/STATS */}
-                        <div className="border-l-4 border-gray-200 h-auto max-h-80 w-7/12 mt-6 pl-8 flex flex-wrap text-black">
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">HP: {data?.hp}</span>
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">DEFENSE: {data?.defense}</span>
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">SP. ATTACK: {data?.special_attack}</span>
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">SP. DEFENSE: {data?.special_defense}</span>
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">SPEED: {data?.speed}</span>
-                            <span className="h-10 w-auto m-2 px-6 py-4 flex justify-start items-center bg-white text-lg font-semibold shadow-md rounded-xl">ATTACK: {data?.attack}</span>
-                        </div>
+                        <PokemonStats data={data} />
                     </div>
 
 
                 </div>
 
                 {/* SEARCH BAR */}
-                <div className="h-1/12 w-full flex justify-around items-start">
+                <SearchBar />
 
-                    {/* search name */}
-                    <div className="h-3/5 w-1/4 flex justify-between items-center text-black">
-                        <input type="text" className="h-full w-9/12 pl-4 flex justify-center items-center bg-gray-100 text-xl shadow-md rounded-xl" placeholder="Search name"/>
-                        <div className="h-full w-2/12 flex justify-center items-center bg-gray-100 text-xl font-medium shadow-md rounded-xl hover:bg-gray-200 active:bg-white cursor-pointer">Go!</div>
-                    </div>
-
-                    {/* search number */}
-                    <div className="h-3/5 w-1/4 flex justify-between items-center text-black">
-                        <input type="text" className="h-full w-9/12 pl-4 flex justify-center items-center bg-gray-100 text-xl shadow-md rounded-xl" placeholder="Search number"/>
-                        <div className="h-full w-2/12 flex justify-center items-center bg-gray-100 text-xl font-medium shadow-md rounded-xl hover:bg-gray-200 active:bg-white cursor-pointer">Go!</div>
-                    </div>
-                    
-                </div>
             </div>
         </>
     )
