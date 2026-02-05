@@ -7,7 +7,6 @@ function IDBarNumber({ num, indexNum }){
     function handleOnClick(){
         setNumBarID(num);
         setIsNumBar(!isNumBar);
-        // console.log(`this is log ${numBarID}`);
     }
 
     return(

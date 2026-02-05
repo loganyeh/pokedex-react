@@ -5,6 +5,9 @@ import { MyContext } from "./context/MyContext"
 import { useState } from "react"
 
 function App() {
+  const [currentPokemonID, setCurrentPokemonID] = useState(699);
+  // set up so that name id numbar sets to current id and then for num line increment the current pokemon id whatever
+  // left off here
   const [name, setName] = useState("Aurorus");
   const [number, setNumber] = useState(699);
 

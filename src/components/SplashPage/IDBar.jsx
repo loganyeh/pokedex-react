@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function IDBar({ data }){
-    const { number, setNumber } = useContext(MyContext);
+    const { numBarID, setNumBarID } = useContext(MyContext);
     const numberLineArr = [
         (data?.id - 4).toString(), (data?.id - 3).toString(), (data?.id - 2).toString(), (data?.id - 1).toString(), 
         data?.id, 
@@ -17,7 +17,6 @@ function IDBar({ data }){
                 {numberLineArr.map((number, index) => {
                     return <IDBarNumber key={index} indexNum={index} num={number} />
                 })}
-                {/* <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">{data?.id + 10}</span> */}
                 <span className="mx-5 text-shadow-sm hover:text-gray-200 active:text-white cursor-pointer">&gt;</span>
             </div>
         </>
