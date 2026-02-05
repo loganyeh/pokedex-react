@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MyContext } from "../context/MyContext";
 import SearchBar from "../components/SplashPage/SearchBar";
 import IDBar from "../components/SplashPage/IDBar";
 import NameIDTitle from "../components/SplashPage/NameIDTitle";
@@ -7,13 +8,14 @@ import PokemonStats from "../components/SplashPage/PokemonStats";
 import PokemonType from "../components/SplashPage/PokemonType";
 
 function PokemonInfoPage(){
+    const { name, setName, number, setNumber } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${queryNum}`);
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`);
                 const data = await response.json();
                 const pokemonData = {
                     sprite: data.sprites.front_default,
@@ -39,10 +41,13 @@ function PokemonInfoPage(){
             }
         }
         fetchPokemon();
-    }, []);
+    }, [number]);
+
+    console.log("this is the main page")
 
     return(
         <>
+            
             <div className="h-screen w-screen bg-blue-300 text-white">
 
                 {/* Pagination ID BAR */}
