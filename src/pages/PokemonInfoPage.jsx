@@ -8,7 +8,7 @@ import PokemonStats from "../components/SplashPage/PokemonStats";
 import PokemonType from "../components/SplashPage/PokemonType";
 
 function PokemonInfoPage(){
-    const { name, setName, number, setNumber } = useContext(MyContext);
+    const { name, setName, number, setNumber, isNumber, setIsNumber } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [queryNum, setQueryNum] = useState(699);
 
@@ -37,11 +37,11 @@ function PokemonInfoPage(){
                 }
                 setData(pokemonData);
             } catch (error) {
-                console.error("error");
+                console.error(`Pokemon ${number} does not exist.`);
             }
         }
         fetchPokemon();
-    }, [number]);
+    }, [isNumber]);
 
     return(
         <>

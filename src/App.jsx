@@ -7,10 +7,12 @@ import { useState } from "react"
 function App() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState(699);
+
+  const [isNumber, setIsNumber] = useState(true);
   
   return (
     <>
-      <MyContext.Provider value={{ name, setName, number, setNumber }}>
+      <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
         </Routes>
