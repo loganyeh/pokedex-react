@@ -8,14 +8,14 @@ import PokemonStats from "../components/SplashPage/PokemonStats";
 import PokemonType from "../components/SplashPage/PokemonType";
 
 function PokemonInfoPage(){
-    const { name, setName, number, setNumber } = useContext(MyContext);
+    const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName } = useContext(MyContext);
     const [data, setData] = useState(null);
-    const [queryNum, setQueryNum] = useState(699);
+    // const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`);
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number)}`);
                 const data = await response.json();
                 const pokemonData = {
                     sprite: data.sprites.front_default,
@@ -37,11 +37,11 @@ function PokemonInfoPage(){
                 }
                 setData(pokemonData);
             } catch (error) {
-                console.error("error");
+                console.error(`Pokemon ${number} does not exist.`);
             }
         }
         fetchPokemon();
-    }, [number]);
+    }, [isName, isNumber]);
 
     return(
         <>
