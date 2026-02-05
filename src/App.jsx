@@ -5,14 +5,18 @@ import { MyContext } from "./context/MyContext"
 import { useState } from "react"
 
 function App() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Aurorus");
   const [number, setNumber] = useState(699);
 
+  // search Name CONSTs
+  const [isName, setIsName] = useState(true);
+  
+  // search Number CONSTS
   const [isNumber, setIsNumber] = useState(true);
   
   return (
     <>
-      <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber }}>
+      <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
         </Routes>
@@ -21,4 +25,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
