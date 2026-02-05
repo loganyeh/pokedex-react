@@ -5,9 +5,9 @@ import { MyContext } from "./context/MyContext"
 import { useState } from "react"
 
 function App() {
-  const [name, setName] = useState();
-  const [number, setNumber] = useState();
-
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState(699);
+  
   return (
     <>
       <MyContext.Provider value={{ name, setName, number, setNumber }}>

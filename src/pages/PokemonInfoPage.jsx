@@ -43,8 +43,6 @@ function PokemonInfoPage(){
         fetchPokemon();
     }, [number]);
 
-    console.log("this is the main page")
-
     return(
         <>
             
