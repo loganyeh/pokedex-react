@@ -19,7 +19,7 @@ function App() {
 
   // ID BAR NUMBEr CONSTS
   const [numBarID, setNumBarID] = useState(699);
-  const [isNumBar, setIsNumBar] = useState();
+  const [isNumBar, setIsNumBar] = useState(699);
   
   return (
     <>
