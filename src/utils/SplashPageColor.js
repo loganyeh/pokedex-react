@@ -30,10 +30,10 @@ export function SplashPageColor(type){
             return "bg-purple-300";
 
         case "Ghost":
-            return "bg-purple-400";
+            return "bg-purple-300";
 
         case "Dragon":
-            return "bg-orange-300";
+            return "bg-orange-400";
 
         case "Dark":
         case "Steel":
