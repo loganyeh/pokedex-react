@@ -11,7 +11,7 @@ function IDBarNumber({ num, indexNum }){
 
     return(
         <>
-            <span onClick={handleOnClick} className={`mx-5 text-shadow-sm ${(indexNum === 4) ? "font-medium underline" : ""} hover:text-gray-200 active:text-white cursor-pointer`}>{(num < 1 || num > 1025) ? "-" : num}</span>
+            <span onClick={handleOnClick} className={`mx-5 text-shadow-sm ${(indexNum === 4) ? "font-medium underline" : ""} hover:text-gray-200 active:text-white cursor-pointer`}>{(Number.isNaN(num) || num < 1 || num > 1025) ? "-" : num}</span>
         </>
     )
 }

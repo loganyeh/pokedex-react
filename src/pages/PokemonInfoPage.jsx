@@ -6,10 +6,12 @@ import NameIDTitle from "../components/SplashPage/NameIDTitle";
 import RegionName from "../components/SplashPage/RegionName";
 import PokemonStats from "../components/SplashPage/PokemonStats";
 import PokemonType from "../components/SplashPage/PokemonType";
+import { SplashPageColor } from "../utils/SplashPageColor";
 
 function PokemonInfoPage(){
     const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
     const [data, setData] = useState(null);
+    const [backgroundColor, setBackgroundColor] = useState(null);
     // const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
@@ -34,8 +36,10 @@ function PokemonInfoPage(){
                     // type_two: data.types[1].type.name.charAt(0).toUpperCase() + data.types[1].type.name.slice(1),
                     // figure out what do do if it has more than 1 or more than 2 types 
                     // add more types ????
+
                 }
                 setData(pokemonData);
+                setBackgroundColor((pokemonData.type_one).toLowerCase());
             } catch (error) {
                 console.error(`Pokemon ${number} does not exist.`);
             }
@@ -46,7 +50,7 @@ function PokemonInfoPage(){
     return(
         <>
             
-            <div className="h-screen w-screen bg-blue-300 text-white">
+            <div className={`h-screen w-screen ${SplashPageColor(backgroundColor)} text-white`}>
 
                 {/* Pagination ID BAR */}
                 <IDBar data={data} />

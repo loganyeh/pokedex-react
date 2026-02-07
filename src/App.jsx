@@ -5,11 +5,11 @@ import { MyContext } from "./context/MyContext"
 import { useState } from "react"
 
 function App() {
-  const [currentPokemonID, setCurrentPokemonID] = useState(699);
+  const [currentPokemonID, setCurrentPokemonID] = useState(134);
   // set up so that name id numbar sets to current id and then for num line increment the current pokemon id whatever
   // left off here
-  const [name, setName] = useState("Aurorus");
-  const [number, setNumber] = useState(699);
+  const [name, setName] = useState("Vaporeon");
+  const [number, setNumber] = useState(134);
 
   // search Name CONSTs
   const [isName, setIsName] = useState(true);
@@ -18,8 +18,8 @@ function App() {
   const [isNumber, setIsNumber] = useState(true);
 
   // ID BAR NUMBEr CONSTS
-  const [numBarID, setNumBarID] = useState(699);
-  const [isNumBar, setIsNumBar] = useState(699);
+  const [numBarID, setNumBarID] = useState(134);
+  const [isNumBar, setIsNumBar] = useState(134);
   
   return (
     <>
