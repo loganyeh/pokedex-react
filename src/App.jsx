@@ -5,6 +5,9 @@ import { MyContext } from "./context/MyContext"
 import { useState } from "react"
 
 function App() {
+  const [currentPokemonID, setCurrentPokemonID] = useState(699);
+  // set up so that name id numbar sets to current id and then for num line increment the current pokemon id whatever
+  // left off here
   const [name, setName] = useState("Aurorus");
   const [number, setNumber] = useState(699);
 
@@ -13,10 +16,14 @@ function App() {
   
   // search Number CONSTS
   const [isNumber, setIsNumber] = useState(true);
+
+  // ID BAR NUMBEr CONSTS
+  const [numBarID, setNumBarID] = useState(699);
+  const [isNumBar, setIsNumBar] = useState(699);
   
   return (
     <>
-      <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName }}>
+      <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
         </Routes>
