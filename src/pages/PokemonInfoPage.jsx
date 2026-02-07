@@ -39,7 +39,7 @@ function PokemonInfoPage(){
 
                 }
                 setData(pokemonData);
-                setBackgroundColor((pokemonData.type_one).toLowerCase());
+                setBackgroundColor((pokemonData.type_one));
             } catch (error) {
                 console.error(`Pokemon ${number} does not exist.`);
             }
@@ -69,9 +69,9 @@ function PokemonInfoPage(){
                         {/* NAME TITLE */}
                         <div className="h-full w-11/12 relative">
                             <div className="h-1/3 w-full absolute top-0 text-9xl text-black font-normal opacity-50 z-10">アマルルガ</div>
-                            <div className="h-1/3 w-full absolute top-1/3 pl-3 text-2xl font-normal text-shadow-sm">
-                                Height: <span className="text-xl font-light text-shadow-sm">{data?.height}m</span><br />
-                                Weight: <span className="text-xl font-light text-shadow-sm">{data?.weight}kg</span>
+                            <div className="h-1/3 w-full absolute top-1/3 pl-3 text-2xl font-normal text-shadow-lg">
+                                Height: <span className="text-xl font-light text-shadow-lg">{data?.height}m</span><br />
+                                Weight: <span className="text-xl font-light text-shadow-lg">{data?.weight}kg</span>
                             </div>
 
                             {/* img sprite */}
@@ -89,7 +89,7 @@ function PokemonInfoPage(){
                         <PokemonType data={data} />
 
                         {/* Base Stats TITLE */}
-                        <div className="h-2/12 w-full flex justify-start items-center text-6xl text-shadow-sm">Base stats:</div>
+                        <div className="h-2/12 w-full flex justify-start items-center text-6xl text-shadow-lg">Base stats:</div>
                         
                         {/* Pokemon INFO/STATS */}
                         <PokemonStats data={data} />
