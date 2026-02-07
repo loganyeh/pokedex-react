@@ -7,7 +7,7 @@ export function SplashPageColor(type){
             return "bg-gray-300";
 
         case "Fire":
-            return "bg-red-300";
+            return "bg-red-400";
 
         case "Water":
         case "Ice":
@@ -24,23 +24,23 @@ export function SplashPageColor(type){
 
         case "Ground":
         case "Rock":
-            return "bg-brown-300";
+            return "bg-yellow-600";
 
         case "Psychic":
             return "bg-purple-300";
 
         case "Ghost":
-            return "bg-grey-300";
+            return "bg-purple-400";
 
         case "Dragon":
             return "bg-orange-300";
 
         case "Dark":
         case "Steel":
-            return "bg-gray-300";
+            return "bg-gray-400";
 
         case "Fairy":
-            return "bg-pink-300";
+            return "bg-pink-200";
 
         default:
             return "bg-blue-300"
