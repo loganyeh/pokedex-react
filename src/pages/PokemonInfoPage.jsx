@@ -40,6 +40,7 @@ function PokemonInfoPage(){
                 }
                 setData(pokemonData);
                 setBackgroundColor((pokemonData.type_one));
+
             } catch (error) {
                 console.error(`Pokemon ${number} does not exist.`);
             }
