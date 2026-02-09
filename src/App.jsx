@@ -26,6 +26,7 @@ function App() {
       <MyContext.Provider value={{ name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </MyContext.Provider>
     </>
