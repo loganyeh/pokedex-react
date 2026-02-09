@@ -7,6 +7,7 @@ import RegionName from "../components/SplashPage/RegionName";
 import PokemonStats from "../components/SplashPage/PokemonStats";
 import PokemonType from "../components/SplashPage/PokemonType";
 import { SplashPageColor } from "../utils/SplashPageColor";
+import { fetchPokemon } from "../api/api";
 
 function PokemonInfoPage(){
     const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);

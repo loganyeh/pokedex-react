@@ -12,7 +12,7 @@ function HomePage(){
 
     return(
         <>
-            <div className="h-screen w-screen bg-blue-300 text-white">
+            <div className="h-screen w-screen">
                 <div className="border border-black h-1/12 w-full flex justify-between items-start pt-4 text-2xl">
                     <div className="border border-black h-full w-1/5 flex justify-around items-center">
                         {linkNameArr.map((title, index) => {
@@ -33,16 +33,21 @@ function HomePage(){
                 </div>
 
                 {/* body page */}
-                <div className="border-2 border-red-600 h-auto min-h-full w-full bg-blue-300 flex">
+                <div className="border-2 border-red-600 h-auto min-h-full w-full flex">
                         <div className="border-2 border-red-600 min-h-full w-1/8"></div>
 
                         {/* pokemon list */}
                         <div className="border-2 border-black min-h-full w-6/8 pb-40 flex flex-wrap justify-between">
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6"></div>
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6"></div>
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6"></div>
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6"></div>
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6"></div>
+                            <div className="border-2 border-black bg-white h-70 w-60 my-6 rounded-xl shadow-md">
+                                <div className="border border-black h-4/5 w-full flex justify-center items-center">
+                                    O
+                                </div>
+                                <div className="border border-black h-1/5 w-full flex">
+                                    <div className="border-2 border-red-600 h-full w-1/4 flex justify-center items-center">#1</div>
+                                    <div className="border-2 border-red-600 h-full w-3/4 flex justify-center items-center">Squirtle</div>
+                                </div>
+                            </div>
+                            
                         </div>  
 
                         <div className="border-2 border-red-600 min-h-full w-1/8"></div>
