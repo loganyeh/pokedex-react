@@ -2,7 +2,7 @@ import SearchBarShell from "./SearchBarShell";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
-function SearchBar({  }){
+function SearchBar({ data }){
     const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, numBarID, setNumBarID } = useContext(MyContext);
 
     function clearInput(){
@@ -15,16 +15,15 @@ function SearchBar({  }){
     //---------- NAME ----------
     function handleOnChangeName(e){
         setName(e.target.value);
-        setNumBarID(name);
     }
-
+    
     function handleKeyDownName(e){
         if(e.key === "Enter"){
             setIsName(!isName);
             clearInput();
         }
     }
-
+    
     function handleOnClickName(){
         setIsName(!isName);
         clearInput();

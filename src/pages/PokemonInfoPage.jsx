@@ -69,7 +69,7 @@ function PokemonInfoPage(){
                         
                         {/* NAME TITLE */}
                         <div className="h-full w-11/12 relative">
-                            <div className="h-1/3 w-full absolute top-0 text-9xl text-black font-normal opacity-50 z-10">アマルルガ</div>
+                            <div onClick={() => console.clear()} className="h-1/3 w-full absolute top-0 text-9xl text-black font-normal opacity-50 z-10 cursor-pointer">アマルルガ</div>
                             <div className="h-1/3 w-full absolute top-1/3 pl-3 text-2xl font-normal text-shadow-lg">
                                 Height: <span className="text-xl font-light text-shadow-lg">{data?.height}m</span><br />
                                 Weight: <span className="text-xl font-light text-shadow-lg">{data?.weight}kg</span>
@@ -100,7 +100,7 @@ function PokemonInfoPage(){
                 </div>
 
                 {/* SEARCH BAR */}
-                <SearchBar />
+                <SearchBar data={data} />
 
             </div>
         </>
