@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function SearchBar({  }){
-    const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName } = useContext(MyContext);
+    const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, numBarID, setNumBarID } = useContext(MyContext);
 
     function clearInput(){
         setTimeout(() => {
@@ -15,6 +15,7 @@ function SearchBar({  }){
     //---------- NAME ----------
     function handleOnChangeName(e){
         setName(e.target.value);
+        setNumBarID(name);
     }
 
     function handleKeyDownName(e){
@@ -32,16 +33,19 @@ function SearchBar({  }){
     //---------- NUMBER ----------
     function handleOnChangeNumber(e){
         setNumber(e.target.value);
+        setNumBarID(Number(number));
     }
-
+    
     function handleKeyDownNumber(e){
         if(e.key === "Enter"){
+            setNumBarID(Number(number));
             setIsNumber(!isNumber);
             clearInput();
         }
     }
-
+    
     function handleOnClickNumber(){
+        setNumBarID(Number(number));
         setIsNumber(!isNumber);
         clearInput();
     }

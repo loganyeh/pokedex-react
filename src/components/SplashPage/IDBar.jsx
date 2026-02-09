@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function IDBar({ data }){
-    const { numBarID, setNumBarID, isNumBar, setIsNumBar } = useContext(MyContext);
+    const { name, setName, numBarID, setNumBarID, isNumBar, setIsNumBar } = useContext(MyContext);
     const numberLineArr = [
         (data?.id - 4), (data?.id - 3), (data?.id - 2), (data?.id - 1), 
         data?.id, 
@@ -11,13 +11,19 @@ function IDBar({ data }){
     ]
 
     function handleIncrement(){
+        // setNumBarID(name);
         setNumBarID(prev => prev + 1);
         setIsNumBar(!isNumBar);
+        console.log(numBarID);
+        console.log(typeof numBarID);
     }
-
+    
     function handleDecrement(){
+        // setNumBarID(name);
         setNumBarID(prev => prev - 1);
         setIsNumBar(!isNumBar);
+        console.log(numBarID);
+        console.log(typeof numBarID);
     }
 
 
