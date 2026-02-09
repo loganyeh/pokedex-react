@@ -1,7 +1,7 @@
 
-export const fetchPokemon = async (name, number, numBarID, ) => {
+export const fetchPokemon = async (name, number, numBarID) => {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID)}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID || 134)}`);
         const data = await response.json();
         const pokemonData = {
             sprite: data.sprites.front_default,
@@ -28,6 +28,6 @@ export const fetchPokemon = async (name, number, numBarID, ) => {
         return pokemonData;
 
     } catch (error) {
-        console.error(`Pokemon ${number} does not exist.`);
+        console.error(`Pokemon does not exist.`);
     }
 }
