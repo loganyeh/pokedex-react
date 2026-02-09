@@ -3,46 +3,42 @@ export function PokemonTypeImgs(type){
 
     switch(type){
         case "Normal":
-        case "Fighting":
-            return "bg-gray-300";
-
+            return <i class='bx bx-circle text-5xl'></i>;
         case "Fire":
-            return "bg-red-400";
-
+            return <i className='bx bxs-hot text-5xl'></i>;
         case "Water":
-        case "Ice":
-        case "Flying":
-            return "bg-blue-300";
-            
+            return <i className='bx bx-water text-5xl'></i>;
         case "Electric":
-            return "bg-yellow-300";
-
+            return <i className='bx bxs-bolt text-5xl'></i>
         case "Grass":
+            return <i className='bx bx-leaf text-5xl'></i>;
+        case "Ice":
+            return <i class='bx bx-cloud-snow text-5xl' ></i>;
+        case "Fighting":
+            return <i className='bx bxs-hand text-5xl'></i>;
         case "Poison":
-        case "Bug":
-            return "bg-green-300";
-
+            return <i className='bx bxs-skull text-5xl'></i>;
         case "Ground":
-        case "Rock":
-            return "bg-yellow-600";
-
+            return <i className='bx bx-world text-5xl'></i>;
+        case "Flying":
+            return <i className='bx bxs-plane-take-off text-5xl'></i>;
         case "Psychic":
-            return "bg-purple-300";
-
+            return <i className='bx bx-analyse text-5xl'></i>;
+        case "Bug":
+            return <i className='bx bx-bug text-5xl'></i>;
+        case "Rock":
+            return <i className='bx bxl-sketch text-5xl'></i>;
         case "Ghost":
-            return "bg-purple-300";
-
+            return <i className='bx bx-ghost text-5xl'></i>;
         case "Dragon":
-            return "bg-orange-400";
-
+            return <i className='bx bxs-plane text-5xl'></i>;
         case "Dark":
+            return <i className='bx bx-moon text-5xl'></i>;
         case "Steel":
-            return "bg-gray-400";
-
+            return <i className='bx bx-hard-hat text-5xl'></i>;
         case "Fairy":
-            return "bg-pink-200";
-
+            return <i className='bx bx-star text-5xl'></i>;
         default:
-            return <i className='bx bx-water text-5xl'></i>
+            return <i className='bx bx-question-mark text-5xl'></i>
     }
 }
