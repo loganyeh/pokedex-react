@@ -27,7 +27,7 @@ function IDBar({ data }){
             <div className="border border-black h-1/12 w-full flex justify-between items-start pt-4 text-2xl">
                 <div className="border border-black h-full w-1/5 flex justify-center items-center">
                     <Link to={"/home"}>
-                        <i className='border border-black bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i>
+                        <i className='bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i>
                     </Link>
                 </div>
                 
