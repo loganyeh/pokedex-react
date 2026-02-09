@@ -3,7 +3,7 @@ export function PokemonTypeImgs(type){
 
     switch(type){
         case "Normal":
-            return <i class='bx bx-circle text-5xl'></i>;
+            return <i className='bx bx-circle text-5xl'></i>;
         case "Fire":
             return <i className='bx bxs-hot text-5xl'></i>;
         case "Water":
@@ -13,7 +13,7 @@ export function PokemonTypeImgs(type){
         case "Grass":
             return <i className='bx bx-leaf text-5xl'></i>;
         case "Ice":
-            return <i class='bx bx-cloud-snow text-5xl' ></i>;
+            return <i className='bx bx-cloud-snow text-5xl' ></i>;
         case "Fighting":
             return <i className='bx bxs-hand text-5xl'></i>;
         case "Poison":
