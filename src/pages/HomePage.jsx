@@ -30,7 +30,7 @@ function HomePage(){
             } 
         };
 
-        // getPokemon();
+        getPokemon();
         
     }, []);
 
@@ -64,15 +64,9 @@ function HomePage(){
                         {/* pokemon list */}
                         <div className="border-2 border-black min-h-full w-6/8 pb-40 flex flex-wrap justify-between">
                             
-                            {/* {cards.map((card, index) => {
+                            {cards.map((card, index) => {
                                 return <PokemonCard key={index} data={card}/>
-                            })} */}
-                            <PokemonCard />
-                            <PokemonCard />
-                            <PokemonCard />
-                            <PokemonCard />
-                            <PokemonCard />
-                            <PokemonCard />
+                            })}
                             
                         </div>  
 
