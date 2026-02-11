@@ -10,7 +10,7 @@ import { SplashPageColor } from "../utils/SplashPageColor";
 import { fetchPokemon } from "../api/api";
 
 function PokemonInfoPage(){
-    const { query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [backgroundColor, setBackgroundColor] = useState(null);
     // const [queryNum, setQueryNum] = useState(699);

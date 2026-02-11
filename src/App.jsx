@@ -11,17 +11,13 @@ function App() {
   const [name, setName] = useState("Vaporeon");
   const [number, setNumber] = useState(134);
 
-  // ID BAR NUMBEr CONSTS
-  const [numBarID, setNumBarID] = useState(134);
-  const [isNumBar, setIsNumBar] = useState(134);
-
   // NEW CONSTANTS
   const [query, setQuery] = useState(1);
   const [queryBool, setQueryBool] = useState(true);
   
   return (
     <>
-      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, isNumBar, setIsNumBar, numBarID, setNumBarID }}>
+      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
           <Route path="/home" element={<HomePage />} />

@@ -4,7 +4,7 @@ import { MyContext } from "../../context/MyContext";
 import { Link } from "react-router-dom";
 
 function IDBar({ data }){
-    const { name, setName, numBarID, setNumBarID, isNumBar, setIsNumBar } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
     const numberLineArr = [
         (data?.id - 4), (data?.id - 3), (data?.id - 2), (data?.id - 1), 
         data?.id, 
@@ -12,13 +12,13 @@ function IDBar({ data }){
     ]
 
     function handleIncrement(){
-        setNumBarID(prev => prev + 1);
-        setIsNumBar(!isNumBar);
+        setQuery(++numberLineArr[4]);
+        setQueryBool(!queryBool);
     }
     
     function handleDecrement(){
-        setNumBarID(prev => prev - 1);
-        setIsNumBar(!isNumBar);
+        setQuery(--numberLineArr[4]);
+        setQueryBool(!queryBool);
     }
 
     return(
