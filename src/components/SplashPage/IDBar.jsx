@@ -24,12 +24,14 @@ function IDBar({ data }){
     return(
         <>
             <div className="border border-black h-1/12 w-full flex justify-between items-start pt-4 text-2xl">
+                {/*  */}
                 <div className="border border-black h-full w-1/5 flex justify-center items-center">
                     <Link to={"/home"}>
                         <i className='bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i>
                     </Link>
                 </div>
                 
+                {/*  */}
                 <div className="border border-black h-10 w-auto flex justify-center items-center">
                     <div onClick={handleDecrement} className="h-full w-20 flex justify-center items-center text-shadow-lg hover:text-gray-200 active:text-white cursor-pointer">&lt;</div>
                     {numberLineArr.map((number, index) => {
@@ -37,6 +39,8 @@ function IDBar({ data }){
                     })}
                     <div onClick={handleIncrement} className="h-full w-20 flex justify-center items-center text-shadow-lg hover:text-gray-200 active:text-white cursor-pointer">&gt;</div>
                 </div>
+
+
 
                 <div className="border border-black h-full w-1/5">
                     {/* back filler to fill the space at end */}

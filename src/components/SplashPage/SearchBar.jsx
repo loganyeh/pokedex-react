@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function SearchBar({ data }){
-    const { query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber } = useContext(MyContext);
 
     function clearInput(){
         setTimeout(() => {
@@ -38,6 +38,11 @@ function SearchBar({ data }){
     
     function handleKeyDownNumber(e){
         if(e.key === "Enter"){
+            if(number < 0){
+                console.log(`${number} is not a Pokemon`);
+                
+                return `${number} is not a Pokemon`;
+            }
             setQuery(number);
             setQueryBool(!queryBool);
             clearInput();
