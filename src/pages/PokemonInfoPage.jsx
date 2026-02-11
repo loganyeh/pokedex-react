@@ -10,7 +10,7 @@ import { SplashPageColor } from "../utils/SplashPageColor";
 import { fetchPokemon } from "../api/api";
 
 function PokemonInfoPage(){
-    const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [backgroundColor, setBackgroundColor] = useState(null);
     // const [queryNum, setQueryNum] = useState(699);
@@ -51,19 +51,19 @@ function PokemonInfoPage(){
 
     useEffect(() => {
         const getPokemon = async() => {
-            const data = await fetchPokemon();
+            const data = await fetchPokemon(query);
             setData(data);
         }
 
-        getPokemon(name, number, numBarID);
+        getPokemon();
 
-    }, [isName, isNumber, isNumBar]);
-    // left of here fix api fetch not WOKRING ****
+    }, [isNumber]);
+    // left of here fix api fetch not WORKING ****
 
     return(
         <>
             
-            <div className={`h-screen w-screen ${SplashPageColor(backgroundColor)} text-white`}>
+            <div className={`h-screen w-screen ${SplashPageColor(data?.type_one)} text-white`}>
 
                 {/* Pagination ID BAR */}
                 <IDBar data={data} />

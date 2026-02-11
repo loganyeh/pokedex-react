@@ -1,7 +1,8 @@
 
-export const fetchPokemon = async (name, number, numBarID) => {
+export const fetchPokemon = async (query) => {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID || 134)}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID || 134)}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
         const data = await response.json();
         const pokemonData = {
             sprite: data.sprites.front_default,

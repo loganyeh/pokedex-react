@@ -21,7 +21,6 @@ function IDBar({ data }){
         setIsNumBar(!isNumBar);
     }
 
-
     return(
         <>
             <div className="border border-black h-1/12 w-full flex justify-between items-start pt-4 text-2xl">
