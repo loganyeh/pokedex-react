@@ -22,37 +22,36 @@ function PokemonCard({ data }){
 
     return(
         <>
-            {/* <div className={`border-2 border-black ${"bg-white"} h-70 w-60 my-6 rounded-xl shadow-md`}>
-                <div className={`border border-black h-4/5 w-full flex justify-center items-center ${"bg-white"} rounded-t-xl`}>
-                    <img src={temp?.sprite} alt={temp?.name} className="h-55 w-55" />
-                </div>
-                <div className="border border-black h-1/5 w-full flex">
-                    <div className="border-2 border-red-600 h-full w-1/5 flex justify-center items-center">#{temp?.id}</div>
-                    <div className="border-2 border-red-600 h-full w-3/5 flex justify-center items-center">{temp?.name}</div>
-                    <div className="border-2 border-red-600 h-full w-1/5 flex justify-center items-center">
-                        <i className='bx bxs-bookmark-star' ></i>
+            <div className={`border border-black ${SplashPageColor(temp?.type_one)} text-white h-90 w-65 my-6 rounded-xl shadow-md`}>
+                
+                {/* NAME and NUMBER */}
+                <div className="border border-red-600 h-1/12 w-full p-2 text-2xl font-semibold text-shadow-lg">#197</div>
+                <div className="border border-red-600 h-1/12 w-full p-2 text-2xl font-semibold text-shadow-lg">Umbreon</div>
+
+                {/* H/W REGION INFO */}
+                <div className="border-2 border-red-600 h-3/12 w-full flex">
+                    {/* region */}
+                    <div className="border-2 border-black h-full w-1/3 flex justify-center items-center text-sm text-shadow-lg">Region: Kanto</div>
+                    {/* height and weight */}
+                    <div className="border border-black h-full w-2/3">
+                        <div className="border border-black h-1/2 w-full text-shadow-lg"></div>
+                        <div className="border border-black h-1/2 w-full text-sm text-shadow-lg">
+                            <span className="font-semibold">Height:</span> 3.54m
+                            <br />
+                            <span className="font-semibold">Weight:</span> 38.22kg
+                        </div>
                     </div>
-                </div>
-            </div> */}
 
-            {/* <img src={temp?.sprite} alt={temp?.name} className="h-55 w-55" /> */}
+                </div>
 
-            <div className={`border border-black ${"bg-white"} h-auto w-100 my-6 rounded-xl shadow-md`}>
-                {/*  */}
-                <div className="border-2 border-red-600 h-12 w-full">#197</div>
-                <div className="border-2 border-red-600 h-12 w-full">Umbreon</div>
-                {/*  */}
-                <div className="border-2 border-red-600 h-24 w-full">
-                    <div className="h-1/3 w-1/3">Region: Kanto</div>
-                    <div className="h-1/3 w-1/3">Height: 3.54m</div>
-                    <div className="h-1/3 w-1/3">Weight: 38.22kg</div>
+                {/* image */}
+                <div className="border border-red-600 h-6/12 w-full flex justify-center items-center">
+                    <img src={temp?.sprite} alt="" className="h-70 w-70 border border-blue-600" />
                 </div>
-                {/*  */}
-                <div className="border-2 border-red-600 h-48 w-full">
-                    <img src={temp?.sprite} alt={temp?.name} className="h-55 w-55" />
-                </div>
-                {/*  */}
-                <div className="border border-red-600 h-24 w-full">ブラッキー</div>
+
+                {/* katakana */}
+                <div className="border border-red-600 h-1/12 w-full flex justify-center items-end text-3xl text-black font-semibold text-shadow-lg opacity-80">ブラッキー</div>
+
             </div>
         
         </>
