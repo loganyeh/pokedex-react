@@ -23,8 +23,6 @@ export const fetchPokemon = async (query) => {
             // add more types ????
 
         }
-        // setData(pokemonData);
-        // setBackgroundColor((pokemonData.type_one));
 
         return pokemonData;
 

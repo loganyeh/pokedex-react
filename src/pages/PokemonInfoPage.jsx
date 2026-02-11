@@ -10,44 +10,10 @@ import { SplashPageColor } from "../utils/SplashPageColor";
 import { fetchPokemon } from "../api/api";
 
 function PokemonInfoPage(){
-    const { query, setQuery, name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
     const [data, setData] = useState(null);
     const [backgroundColor, setBackgroundColor] = useState(null);
     // const [queryNum, setQueryNum] = useState(699);
-
-    // useEffect(() => {
-    //     const fetchPokemon = async () => {
-    //         try {
-    //             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID)}`);
-    //             const data = await response.json();
-    //             const pokemonData = {
-    //                 sprite: data.sprites.front_default,
-    //                 id: data.id,
-    //                 name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
-    //                 region: "Kanto",
-    //                 height: data.height,
-    //                 weight: data.weight,
-    //                 hp: data.stats[0].base_stat,
-    //                 defense: data.stats[2].base_stat,
-    //                 special_attack: data.stats[3].base_stat,
-    //                 special_defense: data.stats[4].base_stat,
-    //                 speed: data.stats[5].base_stat,
-    //                 attack: data.stats[1].base_stat,
-    //                 type_one: data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1),
-    //                 // type_two: data.types[1].type.name.charAt(0).toUpperCase() + data.types[1].type.name.slice(1),
-    //                 // figure out what do do if it has more than 1 or more than 2 types 
-    //                 // add more types ????
-
-    //             }
-    //             setData(pokemonData);
-    //             setBackgroundColor((pokemonData.type_one));
-
-    //         } catch (error) {
-    //             console.error(`Pokemon ${number} does not exist.`);
-    //         }
-    //     }
-    //     fetchPokemon();
-    // }, [isName, isNumber, isNumBar]);
 
     useEffect(() => {
         const getPokemon = async() => {
@@ -57,8 +23,7 @@ function PokemonInfoPage(){
 
         getPokemon();
 
-    }, [isNumber, isName]);
-    // left of here fix api fetch not WORKING ****
+    }, [queryBool]);
 
     return(
         <>
