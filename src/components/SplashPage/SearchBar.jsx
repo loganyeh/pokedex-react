@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function SearchBar({ data }){
-    const { name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber } = useContext(MyContext);
 
     function clearInput(){
         setTimeout(() => {
@@ -19,33 +19,39 @@ function SearchBar({ data }){
     
     function handleKeyDownName(e){
         if(e.key === "Enter"){
-            setIsName(!isName);
+            setQuery(name);
+            setQueryBool(!queryBool);
             clearInput();
         }
     }
     
     function handleOnClickName(){
-        setIsName(!isName);
+        setQuery(name);
+        setQueryBool(!queryBool);
         clearInput();
     }
 
     //---------- NUMBER ----------
     function handleOnChangeNumber(e){
         setNumber(e.target.value);
-        setNumBarID(Number(number));
     }
     
     function handleKeyDownNumber(e){
         if(e.key === "Enter"){
-            setNumBarID(Number(number));
-            setIsNumber(!isNumber);
+            if(number < 0){
+                console.log(`${number} is not a Pokemon`);
+                
+                return `${number} is not a Pokemon`;
+            }
+            setQuery(number);
+            setQueryBool(!queryBool);
             clearInput();
         }
     }
     
     function handleOnClickNumber(){
-        setNumBarID(Number(number));
-        setIsNumber(!isNumber);
+        setQuery(number);
+        setQueryBool(!queryBool);
         clearInput();
     }
 

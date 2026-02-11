@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function IDBarNumber({ num, indexNum }){
-    const { number, setNumber, isNumBar, setIsNumBar, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
 
     function handleOnClick(){
-        setNumBarID(num);
-        setIsNumBar(!isNumBar);
+        setQuery(num);
+        setQueryBool(!queryBool);
     }
 
     return(
