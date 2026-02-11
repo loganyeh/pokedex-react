@@ -27,11 +27,10 @@ function HomePage(){
             
             catch (error) {
                 console.error(error);
-                
             } 
         };
 
-        getPokemon();
+        // getPokemon();
         
     }, []);
 
@@ -63,11 +62,12 @@ function HomePage(){
                         <div className="border-2 border-red-600 min-h-full w-1/8"></div>
 
                         {/* pokemon list */}
-                        <div className="border-2 border-black min-h-full w-6/8 pb-40 flex flex-wrap justify-between">
+                        <div className="border-2 border-black min-h-full w-6/8 pb-40 flex flex-wrap justify-center items-center">
                             
-                            {cards.map((card, index) => {
+                            {/* {cards.map((card, index) => {
                                 return <PokemonCard key={index} data={card}/>
-                            })}
+                            })} */}
+                            <PokemonCard />
                             
                         </div>  
 
