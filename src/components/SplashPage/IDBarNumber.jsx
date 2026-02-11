@@ -5,7 +5,6 @@ function IDBarNumber({ num, indexNum }){
     const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
 
     function handleOnClick(){
-        console.log(`clicked ${num}`);
         setQuery(num);
         setQueryBool(!queryBool);
     }
