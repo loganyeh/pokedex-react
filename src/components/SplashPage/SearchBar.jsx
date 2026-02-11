@@ -1,10 +1,9 @@
 import SearchBarShell from "./SearchBarShell";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
-import { nameToPokemonID } from "../../utils/Functions";
 
 function SearchBar({ data }){
-    const { query, setQuery, name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, numBarID, setNumBarID } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, numBarID, setNumBarID } = useContext(MyContext);
 
     function clearInput(){
         setTimeout(() => {
@@ -21,39 +20,33 @@ function SearchBar({ data }){
     function handleKeyDownName(e){
         if(e.key === "Enter"){
             setQuery(name);
-            setNumBarID(nameToPokemonID(query));
-            setIsName(!isName);
+            setQueryBool(!queryBool);
             clearInput();
         }
     }
     
     function handleOnClickName(){
         setQuery(name);
-        setNumBarID(nameToPokemonID(query));
-        setIsName(!isName);
+        setQueryBool(!queryBool);
         clearInput();
     }
 
     //---------- NUMBER ----------
     function handleOnChangeNumber(e){
         setNumber(e.target.value);
-        setNumBarID(Number(number));
-        setQuery(number);
     }
     
     function handleKeyDownNumber(e){
         if(e.key === "Enter"){
-            setNumBarID(Number(number));
             setQuery(number);
-            setIsNumber(!isNumber);
+            setQueryBool(!queryBool);
             clearInput();
         }
     }
     
     function handleOnClickNumber(){
-        setNumBarID(Number(number));
         setQuery(number);
-        setIsNumber(!isNumber);
+        setQueryBool(!queryBool);
         clearInput();
     }
 
