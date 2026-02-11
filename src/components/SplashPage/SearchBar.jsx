@@ -1,6 +1,7 @@
 import SearchBarShell from "./SearchBarShell";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
+import { nameToPokemonID } from "../../utils/Functions";
 
 function SearchBar({ data }){
     const { query, setQuery, name, setName, number, setNumber, isNumber, setIsNumber, isName, setIsName, numBarID, setNumBarID } = useContext(MyContext);
@@ -19,12 +20,16 @@ function SearchBar({ data }){
     
     function handleKeyDownName(e){
         if(e.key === "Enter"){
+            setQuery(name);
+            setNumBarID(nameToPokemonID(query));
             setIsName(!isName);
             clearInput();
         }
     }
     
     function handleOnClickName(){
+        setQuery(name);
+        setNumBarID(nameToPokemonID(query));
         setIsName(!isName);
         clearInput();
     }

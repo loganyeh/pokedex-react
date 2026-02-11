@@ -57,7 +57,7 @@ function PokemonInfoPage(){
 
         getPokemon();
 
-    }, [isNumber]);
+    }, [isNumber, isName]);
     // left of here fix api fetch not WORKING ****
 
     return(
