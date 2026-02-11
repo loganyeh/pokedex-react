@@ -2,6 +2,10 @@
 export const fetchPokemon = async (query) => {
     try {
         // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${(name || number || numBarID || 134)}`);
+        if(query < 1 || query > 1025){
+            console.log("DNE");
+        }
+
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
         const data = await response.json();
         const pokemonData = {

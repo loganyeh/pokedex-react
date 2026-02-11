@@ -12,8 +12,6 @@ import { fetchPokemon } from "../api/api";
 function PokemonInfoPage(){
     const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
     const [data, setData] = useState(null);
-    const [backgroundColor, setBackgroundColor] = useState(null);
-    // const [queryNum, setQueryNum] = useState(699);
 
     useEffect(() => {
         const getPokemon = async() => {

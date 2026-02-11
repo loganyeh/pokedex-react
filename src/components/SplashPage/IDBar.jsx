@@ -42,8 +42,8 @@ function IDBar({ data }){
 
 
 
-                <div className="border border-black h-full w-1/5">
-                    {/* back filler to fill the space at end */}
+                <div className="border border-black h-full w-1/5 flex justify-center items-center">
+                    <i className='border border-black bx bxs-bookmark-star text-5xl text-red-600 rounded-full cursor-pointer' ></i>
                 </div>
             </div>
         </>

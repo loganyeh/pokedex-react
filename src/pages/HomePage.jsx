@@ -1,14 +1,40 @@
 import { Link } from "react-router-dom";
-import IDBar from "../components/SplashPage/IDBar";
-import IDBarNumber from "../components/SplashPage/IDBarNumber";
+import { fetchPokemon } from "../api/api";
+import { useEffect, useState, useContext } from "react";
+import { MyContext } from "../context/MyContext";
+import PokemonCard from "../components/Home/PokemonCard";
 
 function HomePage(){
+    // const { query, setQuery } = useContext(MyContext);
+    const [cards, setCards] = useState([]);
     const linkNameArr = ["/home", "/", "/"];
     const iconImageArr = [
         'bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer',
         'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer',
         'bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer',
     ];
+    
+    useEffect(() => {
+        const getPokemon = async () => {
+            try {
+                const list = [];
+                for(let i = 1; i <= 151; i++ ){
+                    list.push(fetchPokemon(i));
+                }
+                const data = await Promise.all(list);
+                setCards(data);
+            } 
+            
+            catch (error) {
+                console.error(error);
+                
+            } 
+        };
+
+        getPokemon();
+        
+    }, []);
+
 
     return(
         <>
@@ -38,15 +64,10 @@ function HomePage(){
 
                         {/* pokemon list */}
                         <div className="border-2 border-black min-h-full w-6/8 pb-40 flex flex-wrap justify-between">
-                            <div className="border-2 border-black bg-white h-70 w-60 my-6 rounded-xl shadow-md">
-                                <div className="border border-black h-4/5 w-full flex justify-center items-center">
-                                    O
-                                </div>
-                                <div className="border border-black h-1/5 w-full flex">
-                                    <div className="border-2 border-red-600 h-full w-1/4 flex justify-center items-center">#1</div>
-                                    <div className="border-2 border-red-600 h-full w-3/4 flex justify-center items-center">Squirtle</div>
-                                </div>
-                            </div>
+                            
+                            {cards.map((card, index) => {
+                                return <PokemonCard key={index} data={card}/>
+                            })}
                             
                         </div>  
 
