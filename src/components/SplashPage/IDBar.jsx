@@ -25,10 +25,13 @@ function IDBar({ data }){
         <>
             <div className="h-1/12 w-full flex justify-between items-start text-2xl">
                 {/*  */}
-                <div className="h-full w-1/5 flex justify-center items-center">
-                    <Link to={"/home"}>
+                <div className="h-full w-1/5 flex justify-around items-center">
+                    {/* <Link to={"/home"}>
                         <i className='bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer text-shadow-lg'></i>
-                    </Link>
+                    </Link> */}
+                    <Link to={"/home"}><i className=  'bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                    <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                    <Link to={"/favorites"}><i className=  'bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
                 </div>
                 
                 {/*  */}

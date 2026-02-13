@@ -12,7 +12,7 @@ function HomePage(){
         const getPokemon = async () => {
             try {
                 const list = [];
-                for(let i = 387; i <= 401; i++ ){
+                for(let i = 1; i <= 151; i++ ){
                     list.push(fetchPokemon(i));
                 }
                 const data = await Promise.all(list);
@@ -34,7 +34,9 @@ function HomePage(){
             <div className="h-screen w-screen bg-blue-100">
                 <div className="border-b border-black h-1/12 w-full flex justify-between items-start text-2xl text-shadow-lg">
                     <div className="border-r border-black h-full w-1/5 flex justify-around items-center">
+                        <Link to={"/home"}><i className=  'bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
                         <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/favorites"}><i className=  'bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
                     </div>
                     
                     <div className="h-full w-auto flex justify-center items-center">

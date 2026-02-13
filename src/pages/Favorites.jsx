@@ -5,7 +5,7 @@ import { MyContext } from "../context/MyContext";
 import PokemonCard from "../components/Home/PokemonCard";
 
 function Favorites(){
-    // const { query, setQuery } = useContext(MyContext);
+    const { favArr, setFavArr } = useContext(MyContext);
     const [cards, setCards] = useState([]);
     
     useEffect(() => {
@@ -34,7 +34,10 @@ function Favorites(){
             <div className="h-screen w-screen">
                 <div className="border-b border-black h-1/12 w-full flex justify-between items-start text-2xl text-shadow-lg">
                     <div className="border-r border-black h-full w-1/5 flex justify-around items-center">
-                        <Link to={"/home"}><i className='bx bx-home-alt-2 text-5xl text-shadow-lg rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        {/* <Link to={"/home"}><i className='bx bx-home-alt-2 text-5xl text-shadow-lg rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link> */}
+                        <Link to={"/home"}><i className=  'bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/favorites"}><i className=  'bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
                     </div>
                     
                     <div className="h-full w-auto flex justify-center items-center">
@@ -52,7 +55,9 @@ function Favorites(){
                     <div className="border-r border-black min-h-full w-1/8"></div>
 
                     {/* pokemon FAVORITES */}
-                        
+                    {favArr.map(() => {
+                        return 
+                    })}
 
                     <div className="border-l border-black min-h-full w-1/8"></div>
                 </div>
