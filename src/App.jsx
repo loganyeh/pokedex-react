@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage"
 import PokemonInfoPage from "./pages/PokemonInfoPage"
 import { MyContext } from "./context/MyContext"
 import { useState } from "react"
+import Favorites from "./pages/Favorites"
 
 function App() {
   const [currentPokemonID, setCurrentPokemonID] = useState(134);
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </MyContext.Provider>
     </>

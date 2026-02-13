@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SplashPageColor } from "../../utils/SplashPageColor";
 import { fetchPokemon } from "../../api/api";
+import { Link } from "react-router-dom";
 
 function PokemonCard({ data }){
     const [temp, setTemp] = useState();
@@ -22,17 +23,17 @@ function PokemonCard({ data }){
 
     return(
         <>
-            <div className={`border border-gray-200 ${SplashPageColor(data?.type_one)} text-white h-auto w-65 my-6 rounded-xl shadow-md`}>
+            <div className={`border border-gray-50 ${SplashPageColor(data?.type_one)} text-white h-auto w-65 my-6 rounded-xl shadow-xl`}>
                 
                 {/* NAME and NUMBER */}
                 <div className="h-8 w-full p-4 text-2xl font-semibold text-shadow-lg flex justify-between">
-                    <div>#{data?.id}</div>
-                    <div className="h-10 w-10 flex justify-center items-center">
-                        <i className='bx bxs-heart text-3xl hover:text-red-500 cursor-pointer' ></i>
-                        {/* left off here ***** */}
+                    <div className="text-xl">#{data?.id}</div>
+                    <div className="h-8 w-18 flex justify-between items-center">
+                        <i className='bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer' ></i>
+                        <i className='bx bx-right-arrow h-auto w-auto flex justify-center items-center text-3xl hover:text-gray-500 active:text-gray-400 cursor-pointer'></i>
                     </div>
                 </div>
-                <div className="h-8 w-full p-4 text-2xl font-semibold text-shadow-lg">{data?.name}</div>
+                <div className="h-8 w-full p-4 text-3xl font-semibold text-shadow-lg">{data?.name}</div>
 
                 {/* H/W REGION INFO */}
                 <div className="h-23 w-full flex">
@@ -56,7 +57,7 @@ function PokemonCard({ data }){
                 </div>
 
                 {/* katakana */}
-                <div className="h-8 w-full flex justify-center items-end text-3xl text-black font-semibold text-shadow-lg opacity-80">ブラッキー</div>
+                <div className="h-8 w-full flex justify-center items-end text-3xl text-black font-semibold text-shadow-lg opacity-60">ブラッキー</div>
 
             </div>
         

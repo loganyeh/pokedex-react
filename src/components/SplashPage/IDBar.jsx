@@ -23,16 +23,16 @@ function IDBar({ data }){
 
     return(
         <>
-            <div className="border border-black h-1/12 w-full flex justify-between items-start pt-4 text-2xl">
+            <div className="h-1/12 w-full flex justify-between items-start text-2xl">
                 {/*  */}
-                <div className="border border-black h-full w-1/5 flex justify-center items-center">
+                <div className="h-full w-1/5 flex justify-center items-center">
                     <Link to={"/home"}>
-                        <i className='bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i>
+                        <i className='bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer text-shadow-lg'></i>
                     </Link>
                 </div>
                 
                 {/*  */}
-                <div className="border border-black h-10 w-auto flex justify-center items-center">
+                <div className="h-full w-auto flex justify-center items-center">
                     <div onClick={handleDecrement} className="h-full w-20 flex justify-center items-center text-shadow-lg hover:text-gray-200 active:text-white cursor-pointer">&lt;</div>
                     {numberLineArr.map((number, index) => {
                         return <IDBarNumber key={index} indexNum={index} num={number} />
@@ -42,8 +42,10 @@ function IDBar({ data }){
 
 
 
-                <div className="border border-black h-full w-1/5 flex justify-center items-center">
-                    <i className='border border-black bx bxs-bookmark-star text-5xl text-red-600 rounded-full cursor-pointer' ></i>
+                <div className="h-full w-1/5 flex justify-center items-center">
+                    <Link to={"/favorites"}>
+                        <i className='bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer text-shadow-lg'></i>
+                    </Link>
                 </div>
             </div>
         </>
