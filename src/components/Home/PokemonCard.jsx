@@ -8,21 +8,6 @@ import { MyContext } from "../../context/MyContext";
 function PokemonCard({ data }){
     const { query, setQuery, queryBool, setQueryBool, favArr, setFavArr } = useContext(MyContext);
     const [temp, setTemp] = useState();
-    const [isFavColor, setIsFavColor] = useState(false);
-
-    const isFavorite = (pokemonName) => {
-        return favArr.some(pokemon => data?.name === pokemonName);
-    };
-
-    const favorite = isFavorite(data?.name);
-
-    const addToFavorites = (pokemon) => {
-        setFavArr(prev => [...prev, pokemon]);
-      }
-    
-      const removeFromFavorites = (pokemonName) => {
-        setFavArr(prev => prev.filter(pokemon => data?.name !== pokemonName));
-      }
 
     useEffect(() => {
         const getPokemon = async () => {
@@ -42,10 +27,12 @@ function PokemonCard({ data }){
         setQueryBool(!queryBool);
     }
 
+    function tempFunction(){
+        console.log(`temp function`);
+    }
+
     function onClickFavorite(e){
-        e.preventDefault()
-        if (favorite) removeFromFavorites(data?.name)
-        else addToFavorites(data);
+        // WIP
     }
     
     return(
@@ -57,7 +44,7 @@ function PokemonCard({ data }){
                     <div className="text-xl">#{data?.id}</div>
                     <div className="h-8 w-18 flex justify-between items-center">
                         {/* favorite toggle */}
-                        <i onClick={""} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer ${favorite ? "text-red-500" : "text-white"}`} ></i>
+                        <i onClick={tempFunction} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer`} ></i>
                         {/* go to info toggle */}
                         <Link to={"/"}><i onClick={onClickNumber} className='bx bx-right-arrow h-auto w-auto flex justify-center items-center text-3xl hover:text-gray-500 active:text-gray-400 cursor-pointer'></i></Link>
                     </div>
