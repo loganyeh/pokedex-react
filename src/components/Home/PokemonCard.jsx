@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { SplashPageColor } from "../../utils/SplashPageColor";
 import { fetchPokemon } from "../../api/api";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function PokemonCard({ data }){
-    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
+    const { query, setQuery, queryBool, setQueryBool, favArr, setFavArr } = useContext(MyContext);
     const [temp, setTemp] = useState();
 
     useEffect(() => {
@@ -27,6 +27,14 @@ function PokemonCard({ data }){
         setQueryBool(!queryBool);
     }
 
+    function tempFunction(){
+        console.log(`temp function`);
+    }
+
+    function onClickFavorite(e){
+        // WIP
+    }
+    
     return(
         <>
             <div className={`border border-gray-50 ${SplashPageColor(data?.type_one)} text-white h-auto w-65 my-6 rounded-xl shadow-xl`}>
@@ -35,9 +43,10 @@ function PokemonCard({ data }){
                 <div className="h-8 w-full p-4 text-2xl font-semibold text-shadow-lg flex justify-between">
                     <div className="text-xl">#{data?.id}</div>
                     <div className="h-8 w-18 flex justify-between items-center">
-                        <i className='bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer' ></i>
+                        {/* favorite toggle */}
+                        <i onClick={tempFunction} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer`} ></i>
+                        {/* go to info toggle */}
                         <Link to={"/"}><i onClick={onClickNumber} className='bx bx-right-arrow h-auto w-auto flex justify-center items-center text-3xl hover:text-gray-500 active:text-gray-400 cursor-pointer'></i></Link>
-                        
                     </div>
                 </div>
                 <div className="h-8 w-full p-4 text-3xl font-semibold text-shadow-lg">{data?.name}</div>

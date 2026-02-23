@@ -15,10 +15,14 @@ function App() {
   // NEW CONSTANTS
   const [query, setQuery] = useState(1);
   const [queryBool, setQueryBool] = useState(true);
+  const [favArr, setFavArr] = useState([]);
+
+  // functions
+  
   
   return (
     <>
-      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber }}>
+      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, favArr, setFavArr }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
           <Route path="/home" element={<HomePage />} />
