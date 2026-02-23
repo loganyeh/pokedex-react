@@ -16,6 +16,9 @@ function App() {
   const [query, setQuery] = useState(1);
   const [queryBool, setQueryBool] = useState(true);
   const [favArr, setFavArr] = useState([]);
+
+  // functions
+  
   
   return (
     <>

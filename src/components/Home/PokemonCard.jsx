@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { SplashPageColor } from "../../utils/SplashPageColor";
 import { fetchPokemon } from "../../api/api";
 import { Link } from "react-router-dom";
@@ -10,7 +10,19 @@ function PokemonCard({ data }){
     const [temp, setTemp] = useState();
     const [isFavColor, setIsFavColor] = useState(false);
 
-    const isFavorite = favArr[data?.id] ?? false;
+    const isFavorite = (pokemonName) => {
+        return favArr.some(pokemon => data?.name === pokemonName);
+    };
+
+    const favorite = isFavorite(data?.name);
+
+    const addToFavorites = (pokemon) => {
+        setFavArr(prev => [...prev, pokemon]);
+      }
+    
+      const removeFromFavorites = (pokemonName) => {
+        setFavArr(prev => prev.filter(pokemon => data?.name !== pokemonName));
+      }
 
     useEffect(() => {
         const getPokemon = async () => {
@@ -30,15 +42,12 @@ function PokemonCard({ data }){
         setQueryBool(!queryBool);
     }
 
-    function onClickFavorite(){
-        setIsFavColor(!isFavColor);
-        setFavArr(prev => ({
-            ...prev,
-            [data?.id]: !prev[data?.id],
-        }))
-
+    function onClickFavorite(e){
+        e.preventDefault()
+        if (favorite) removeFromFavorites(data?.name)
+        else addToFavorites(data);
     }
-
+    
     return(
         <>
             <div className={`border border-gray-50 ${SplashPageColor(data?.type_one)} text-white h-auto w-65 my-6 rounded-xl shadow-xl`}>
@@ -47,7 +56,9 @@ function PokemonCard({ data }){
                 <div className="h-8 w-full p-4 text-2xl font-semibold text-shadow-lg flex justify-between">
                     <div className="text-xl">#{data?.id}</div>
                     <div className="h-8 w-18 flex justify-between items-center">
-                        <i onClick={onClickFavorite} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer`} style={{ color: isFavorite ? "red" : "white" }} ></i>
+                        {/* favorite toggle */}
+                        <i onClick={""} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer ${favorite ? "text-red-500" : "text-white"}`} ></i>
+                        {/* go to info toggle */}
                         <Link to={"/"}><i onClick={onClickNumber} className='bx bx-right-arrow h-auto w-auto flex justify-center items-center text-3xl hover:text-gray-500 active:text-gray-400 cursor-pointer'></i></Link>
                     </div>
                 </div>
