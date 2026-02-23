@@ -6,21 +6,22 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function PokemonCard({ data }){
-    const { query, setQuery, queryBool, setQueryBool, favArr, setFavArr } = useContext(MyContext);
-    const [temp, setTemp] = useState();
+    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
+    
+    
+    // const [temp, setTemp] = useState();
+    // useEffect(() => {
+    //     const getPokemon = async () => {
+    //         try {
+    //             const data = await fetchPokemon(197);
+    //             setTemp(data);
 
-    useEffect(() => {
-        const getPokemon = async () => {
-            try {
-                const data = await fetchPokemon(197);
-                setTemp(data);
-
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        getPokemon();
-    }, []);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     }
+    //     getPokemon();
+    // }, []);
 
     function onClickNumber(){
         setQuery(data?.id);

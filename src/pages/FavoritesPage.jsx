@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom";
-import { fetchPokemon } from "../api/api";
-import { useEffect, useState, useContext } from "react";
-import { MyContext } from "../context/MyContext";
-import PokemonCard from "../components/Home/PokemonCard";
 
 function Favorites(){
 
@@ -12,17 +8,17 @@ function Favorites(){
                 <div className="border-b border-black h-1/12 w-full flex justify-between items-start text-2xl text-shadow-lg">
                     <div className="border-r border-black h-full w-1/5 flex justify-around items-center">
                         {/* <Link to={"/home"}><i className='bx bx-home-alt-2 text-5xl text-shadow-lg rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link> */}
-                        <Link to={"/home"}><i className=  'bx bx-home-alt-2 text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
-                        <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
-                        <Link to={"/favorites"}><i className=  'bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/home"}><i className=  'bx bx-home-alt-2 text-5xl text-white rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/"}><i className=  'bx bx-info-circle text-5xl text-white rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        <Link to={"/favorites"}><i className=  'bx bx-star text-5xl text-white rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
                     </div>
                     
                     <div className="h-full w-auto flex justify-center items-center">
-                        <div className="h-10 w-auto flex justify-center items-center text-5xl text-shadow-lg">Favorites</div>
+                        <div className="h-10 w-auto flex justify-center items-center text-5xl text-white text-shadow-lg">Favorites</div>
                     </div>
 
                     <div className="border-l border-black h-full w-1/5 flex justify-center items-center">
-                        <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        {/* <Link to={"/"}><i className=  'bx bx-info-circle text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link> */}
                     </div>
 
                 </div>
