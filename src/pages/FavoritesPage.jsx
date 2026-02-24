@@ -32,6 +32,12 @@ function Favorites(){
                     <div className="min-h-full w-1/8"></div>
                     {/* pokemon list */}
                     <div className="min-h-full w-6/8 px-10 pb-40 flex flex-wrap justify-between">
+                        
+                        {favorites.length === 0 ? 
+                        <div className="h-full w-full flex justify-center items-start mt-60">
+                            <div className="text-white text-4xl text-shadow-lg">Add Your Favorite Pokemon</div>
+                        </div> 
+                        : ""}
                         {favorites.map((pokemon, index) => {
                             return <PokemonCard key={index} data={pokemon} />
                         })}
