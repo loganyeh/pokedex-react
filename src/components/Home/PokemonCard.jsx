@@ -8,21 +8,8 @@ import { MyContext } from "../../context/MyContext";
 function PokemonCard({ data }){
     const { query, setQuery, queryBool, setQueryBool, favorites, setFavorites } = useContext(MyContext);
 
-    const favorite = favorites.includes(data?.name);
-
-    // const [temp, setTemp] = useState();
-    // useEffect(() => {
-    //     const getPokemon = async () => {
-    //         try {
-    //             const data = await fetchPokemon(197);
-    //             setTemp(data);
-
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     }
-    //     getPokemon();
-    // }, []);
+    const favorite = favorites.includes(data);
+    // const [favorite, setFavorite] = useState(favorites.includes(data));
 
     function onClickNumber(){
         setQuery(data?.id);
@@ -30,20 +17,19 @@ function PokemonCard({ data }){
     }
 
     function onClickFavorite(){
-        setFavorites(prev => [...prev, data?.name]);
+        setFavorites(prev => [...prev, data]);
         if(favorite){
-            setFavorites(prev => prev.filter(pokemon => pokemon !== data?.name));
+            setFavorites(prev => prev.filter(pokemon => pokemon !== data));
         }
-        
     }
     
-    useEffect(() => {
-        console.log(`new array: ${favorites}`);
-    }, [favorites]);
+    // useEffect(() => {
+    //     console.log(`new array: ${favorites}`);
+    // }, [favorites]);
     
     return(
         <>
-            <div className={`border border-gray-50 ${SplashPageColor(data?.type_one)} text-white h-auto w-65 my-6 rounded-xl shadow-xl`}>
+            <div className={`border border-gray-50 ${SplashPageColor(data?.type_one)} text-white h-92 w-65 my-6 rounded-xl shadow-xl`}>
                 
                 {/* NAME and NUMBER */}
                 <div className="h-8 w-full p-4 text-2xl font-semibold text-shadow-lg flex justify-between">

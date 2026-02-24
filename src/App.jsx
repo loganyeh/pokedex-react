@@ -14,7 +14,7 @@ function App() {
   const [queryBool, setQueryBool] = useState(true);
   // create an array for the favorites tab and for the fav pokemon ******
 
-  const [favorites, setFavorites] = useState(["1", "2", "3"]);
+  const [favorites, setFavorites] = useState([]);
   
   return (
     <>
