@@ -29,13 +29,12 @@ function PokemonCard({ data }){
         setQueryBool(!queryBool);
     }
 
-    function tempFunction(){
-        console.log(`temp function`);
-    }
-
     function onClickFavorite(){
-        // WIP
         setFavorites(prev => [...prev, data?.name]);
+        if(favorite){
+            setFavorites(prev => prev.filter(pokemon => pokemon !== data?.name));
+        }
+        
     }
     
     useEffect(() => {
