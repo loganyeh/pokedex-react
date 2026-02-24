@@ -6,9 +6,10 @@ import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 
 function PokemonCard({ data }){
-    const { query, setQuery, queryBool, setQueryBool } = useContext(MyContext);
-    
-    
+    const { query, setQuery, queryBool, setQueryBool, favorites, setFavorites } = useContext(MyContext);
+
+    const favorite = favorites.includes(data?.name);
+
     // const [temp, setTemp] = useState();
     // useEffect(() => {
     //     const getPokemon = async () => {
@@ -28,13 +29,17 @@ function PokemonCard({ data }){
         setQueryBool(!queryBool);
     }
 
-    function tempFunction(){
-        console.log(`temp function`);
+    function onClickFavorite(){
+        setFavorites(prev => [...prev, data?.name]);
+        if(favorite){
+            setFavorites(prev => prev.filter(pokemon => pokemon !== data?.name));
+        }
+        
     }
-
-    function onClickFavorite(e){
-        // WIP
-    }
+    
+    useEffect(() => {
+        console.log(`new array: ${favorites}`);
+    }, [favorites]);
     
     return(
         <>
@@ -45,7 +50,7 @@ function PokemonCard({ data }){
                     <div className="text-xl">#{data?.id}</div>
                     <div className="h-8 w-18 flex justify-between items-center">
                         {/* favorite toggle */}
-                        <i onClick={tempFunction} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl hover:text-red-500 active:text-red-400 cursor-pointer`} ></i>
+                        <i onClick={onClickFavorite} className={`bx bxs-heart h-auto w-auto flex justify-center items-center text-3xl ${favorite ? "text-red-500" : "text-white"} hover:text-red-500 active:text-red-400 cursor-pointer`} ></i>
                         {/* go to info toggle */}
                         <Link to={"/"}><i onClick={onClickNumber} className='bx bx-right-arrow h-auto w-auto flex justify-center items-center text-3xl hover:text-gray-500 active:text-gray-400 cursor-pointer'></i></Link>
                     </div>

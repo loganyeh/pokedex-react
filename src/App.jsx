@@ -13,10 +13,12 @@ function App() {
   const [query, setQuery] = useState(1);
   const [queryBool, setQueryBool] = useState(true);
   // create an array for the favorites tab and for the fav pokemon ******
+
+  const [favorites, setFavorites] = useState(["1", "2", "3"]);
   
   return (
     <>
-      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber }}>
+      <MyContext.Provider value={{ query, setQuery, queryBool, setQueryBool, name, setName, number, setNumber, favorites, setFavorites }}>
         <Routes>
           <Route path="/" element={<PokemonInfoPage />} />
           <Route path="/home" element={<HomePage />} />
