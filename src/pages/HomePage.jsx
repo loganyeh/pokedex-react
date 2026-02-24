@@ -44,7 +44,7 @@ function HomePage(){
                     </div>
 
                     <div className="h-full w-1/5 flex justify-center items-center">
-                        <Link to={"/favorites"}><i className='bx bx-star text-5xl text-shadow-lg text-white rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link>
+                        {/* <Link to={"/favorites"}><i className='bx bx-star text-5xl text-shadow-lg text-white rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer'></i></Link> */}
                     </div>
 
                 </div>

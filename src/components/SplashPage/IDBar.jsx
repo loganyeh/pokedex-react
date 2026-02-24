@@ -46,9 +46,7 @@ function IDBar({ data }){
 
 
                 <div className="h-full w-1/5 flex justify-center items-center">
-                    <Link to={"/favorites"}>
-                        <i className='bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer text-shadow-lg'></i>
-                    </Link>
+                    {/* <Link to={"/favorites"}><i className='bx bx-star text-5xl rounded-full hover:text-gray-300 active:text-gray-100 cursor-pointer text-shadow-lg'></i></Link> */}
                 </div>
             </div>
         </>
