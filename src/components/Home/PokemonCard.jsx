@@ -1,6 +1,4 @@
-import { useEffect, useState, useRef } from "react";
 import { SplashPageColor } from "../../utils/SplashPageColor";
-import { fetchPokemon } from "../../api/api";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";

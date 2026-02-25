@@ -1,4 +1,3 @@
-import SearchBarShell from "./SearchBarShell";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
 

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { fetchPokemon } from "../api/api";
-import { useEffect, useState, useContext } from "react";
-import { MyContext } from "../context/MyContext";
+import { useEffect, useState } from "react";
 import PokemonCard from "../components/Home/PokemonCard";
 
 function HomePage(){
@@ -12,7 +11,7 @@ function HomePage(){
         const getPokemon = async () => {
             try {
                 const list = [];
-                for(let i = 1; i <= 10; i++ ){
+                for(let i = 1; i <= 1025; i++ ){
                     list.push(fetchPokemon(i));
                 }
                 const data = await Promise.all(list);
