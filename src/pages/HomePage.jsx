@@ -11,7 +11,7 @@ function HomePage(){
         const getPokemon = async () => {
             try {
                 const list = [];
-                for(let i = 1; i <= 1025; i++ ){
+                for(let i = 1; i <= 151; i++ ){
                     list.push(fetchPokemon(i));
                 }
                 const data = await Promise.all(list);
